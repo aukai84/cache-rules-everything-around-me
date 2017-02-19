@@ -1,14 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
-const redis = rquire('redis');
+const redis = require('redis');
 const client = redis.createClient();
+const cache = require('express-redis-cache')();
 
 const { slow } = require('./routes');
 
 const app = express();
 const PORT = 8080;
 
+client.on('connect', () => {
+    console.log("connected");
+});
 app.engine('.hbs', handlebars({extname: '.hbs', defaultLayout: 'main'}));
 app.set('view engine', '.hbs');
 
