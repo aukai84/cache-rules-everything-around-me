@@ -3,6 +3,9 @@ const express = require('express');
 
 const sleep = require('../services/sleep');
 
+const redis = require('redis');
+const client = redis.createClient();
+
 const router = express.Router();
 
 router.route('/')

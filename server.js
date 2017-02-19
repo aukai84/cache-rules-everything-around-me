@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
+const redis = rquire('redis');
+const client = redis.createClient();
 
 const { slow } = require('./routes');
 
