@@ -5,7 +5,7 @@ const sleep = require('../services/sleep');
 
 const redis = require('redis');
 const client = redis.createClient();
-const cache = require('express-redis-cache')({expire: 20});
+const cache = require('express-redis-cache')({expire: 60});
 
 const router = express.Router();
 
